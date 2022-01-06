@@ -40,7 +40,7 @@ bd %>%
 
   
   ggplot( aes(x = mes, y = totales)) +
-  geom_step(size = 1.1, color = "#FF2700") +
+  geom_step(size = 1.1, color = "#098154") +
   labs(title="Evolución de contagios \ny positividad COVID-19",
        subtitle = "En la CDMX")+
   facet_wrap(~tipo, scales = "free")+
