@@ -1,9 +1,8 @@
 
 
 pacman::p_load(tidyverse, foreign, 
-               janitor, readxl, glue,
-               leaflet, sf, ggmap, rvest,
-               ggrepel, tidyquant, httr, jsonlite)
+               janitor, readxl,
+               ggrepel, tidyquant)
 
 
 
