@@ -48,9 +48,8 @@ fi %>%
           linetype = 1) +
   scale_color_manual(values=c("#FF2700", "#77AB43", "#008FD5"))+
   labs(title="Evolución de hospitalizaciones COVID-19",
-       subtitle = "En CDMX")+
+       subtitle = "En CDMX", fill="")+
   scale_x_date(date_breaks= "2 weeks", date_labels = "%d/%b") +
-  scale_y_continuous(trans = "log10")+
   ggthemes::theme_fivethirtyeight()
 
 
@@ -97,7 +96,7 @@ fi %>%
           linetype = 1) +
   scale_color_manual(values=c("#FF2700", "#77AB43", "#008FD5"))+
   labs(title="Evolución de hospitalizaciones COVID-19",
-       subtitle = "En CDMX")+
+       subtitle = "En CDMX", fill="")+
   scale_x_date(date_breaks= "2 weeks", date_labels = "%d/%b") +
   ggthemes::theme_fivethirtyeight()
 
@@ -116,7 +115,7 @@ fe <- hosp%>%
 
 
 fe %>%  
-  filter(fecha>="2021-11-15") %>% 
+  filter(fecha>="2020-11-15") %>% 
   ggplot( ) +
   # geom_line(aes(x = fechreg, y = total, color = vacunado), size = 1.1, alpha = .2) +
   # geom_point(aes(x = fechreg, y = total, color = vacunado),size = 1.1, alpha = .3) +
@@ -124,6 +123,6 @@ fe %>%
           linetype = 1) +
   scale_color_manual(values=c( "#77AB43", "#008FD5"))+
   labs(title="Evolución de hospitalizaciones COVID-19",
-       subtitle = "En CDMX")+
-  scale_x_date(date_breaks= "2 weeks", date_labels = "%d/%b") +
+       subtitle = "En CDMX", fill="")+
+  scale_x_date(date_breaks= "8 weeks", date_labels = "%d/%b") +
   ggthemes::theme_fivethirtyeight()
