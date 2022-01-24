@@ -40,7 +40,7 @@ fi <- left_join(fa, fe) %>%
 
 
 fi %>%  
-  filter(fecha>="2021-11-15" & fecha< max(fecha)-2) %>% 
+  filter(fecha>="2021-11-15" & fecha< max(fecha)-1) %>% 
   ggplot( ) +
   # geom_line(aes(x = fechreg, y = total, color = vacunado), size = 1.1, alpha = .2) +
   # geom_point(aes(x = fechreg, y = total, color = vacunado),size = 1.1, alpha = .3) +
@@ -103,9 +103,10 @@ fi %>%
 
 
 # Solo hospitalizados -----------------------------------------------------
-
+# vs. Delta pick
 fe <- hosp%>% 
-  mutate(fecha=ymd(fecha)) %>% 
+  mutate(fecha=ymd(fecha)) %>%
+  filter(fecha>"2021-06-06") %>% 
   mutate(maximo_hosp=max(hospitalizados_totales_cdmx), 
          maximo_int=max(camas_intubados_cdmx)) %>% 
   mutate(porc_hosp=hospitalizados_totales_cdmx/maximo_hosp, 
@@ -115,7 +116,7 @@ fe <- hosp%>%
 
 
 fe %>%  
-  filter(fecha>="2020-11-15") %>% 
+  filter(fecha>="2020-06-15") %>% 
   ggplot( ) +
   # geom_line(aes(x = fechreg, y = total, color = vacunado), size = 1.1, alpha = .2) +
   # geom_point(aes(x = fechreg, y = total, color = vacunado),size = 1.1, alpha = .3) +
