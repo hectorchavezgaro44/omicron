@@ -124,6 +124,8 @@ fe %>%
           linetype = 1) +
   scale_color_manual(values=c( "#77AB43", "#008FD5"))+
   labs(title="Evolución de hospitalizaciones COVID-19",
-       subtitle = "En CDMX", fill="")+
+       subtitle = "En CDMX", color="")+
   scale_x_date(date_breaks= "8 weeks", date_labels = "%d/%b") +
   ggthemes::theme_fivethirtyeight()
+
+ggsave(here("out","hosp_vs_delta.png"), width = 11, height = 5, units="in")
