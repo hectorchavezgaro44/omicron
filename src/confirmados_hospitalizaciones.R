@@ -10,7 +10,7 @@ hosp <- read_csv(here("data", "personas_hospitalizadas_con_diagnostico_covid19.c
 casos <- read_csv(here("data", "casos_positivos.csv"))
 
 max_casos<- casos %>% 
-              filter(fecha_toma_muestra<"2021-12-01") %>% 
+              filter(fecha_toma_muestra<"2021-12-01") %>%
               mutate(maximo_casos=max(positivos_totales_cdmx)) %>% 
               select(maximo_casos) %>% 
               unique() %>% 
@@ -47,11 +47,12 @@ fi %>%
   geom_ma(aes(x = fecha, y = porc, color = tipo), size = 1.1, n = 7,
           linetype = 1) +
   scale_color_manual(values=c("#FF2700", "#77AB43", "#008FD5"))+
-  labs(title="Evolución de hospitalizaciones COVID-19",
-       subtitle = "En CDMX", fill="")+
+  labs(title="Evolución de hospitalizaciones COVID-19, CDMX",
+       subtitle = "Porcentaje con respecto al pico de Delta", color="")+
   scale_x_date(date_breaks= "2 weeks", date_labels = "%d/%b") +
   ggthemes::theme_fivethirtyeight()
 
+ggsave(here("out","casos_vs_delta.png"), width = 11, height = 5, units="in")
 
 
 # ZM ----------------------------------------------------------------------
